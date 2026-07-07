@@ -481,6 +481,221 @@
       border-radius: 50%;
     }
 
+    .tab-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--line);
+      background: #f8fafc;
+    }
+
+    .tab-button {
+      min-height: 38px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #344054;
+      background: #ffffff;
+      font-size: .86rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .tab-button.active {
+      color: #ffffff;
+      border-color: var(--brand);
+      background: var(--brand);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+      animation: panelIn .28s ease both;
+    }
+
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      padding: 24px;
+      background: #fbfdff;
+    }
+
+    .tool-card {
+      min-height: 190px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .tool-card h3 {
+      margin: 0 0 14px;
+      font-size: 1.12rem;
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .input-grid select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #ffffff;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .input-grid select {
+      height: 46px;
+      padding: 0 12px;
+    }
+
+    textarea {
+      min-height: 104px;
+      padding: 12px;
+      resize: vertical;
+    }
+
+    .result-box,
+    .split-result {
+      display: grid;
+      gap: 5px;
+      padding: 13px;
+      border-radius: 8px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+    }
+
+    .result-box span,
+    .split-result span {
+      color: var(--muted);
+      font-size: .75rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .result-box strong,
+    .split-result strong {
+      font-size: 1.18rem;
+    }
+
+    .split-result {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .progress-track {
+      height: 12px;
+      margin-top: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e2e8f0;
+    }
+
+    .progress-track span {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--brand), var(--blue));
+      transition: width .25s ease;
+    }
+
+    .insight-text {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .challenge-list,
+    .bill-list,
+    .profile-pills,
+    .scenario-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .challenge-list label,
+    .bill-list label,
+    .toggle-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 750;
+    }
+
+    .bill-list label {
+      justify-content: space-between;
+    }
+
+    .bill-list input {
+      max-width: 140px;
+    }
+
+    .ghost-action,
+    .profile-pills button {
+      min-height: 40px;
+      border-radius: 7px;
+      color: var(--brand-dark);
+      background: rgba(15, 118, 110, .09);
+      font-weight: 850;
+      padding: 0 12px;
+    }
+
+    .profile-pills {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .hero-score {
+      display: grid;
+      align-content: center;
+      text-align: center;
+      background: linear-gradient(145deg, #ffffff, #ecfdf5);
+    }
+
+    .hero-score > strong {
+      font-size: 4rem;
+      color: var(--brand);
+      line-height: 1;
+    }
+
+    .stories-card {
+      color: #ffffff;
+      background:
+        linear-gradient(145deg, rgba(15, 118, 110, .94), rgba(37, 99, 235, .86)),
+        url("https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=900&q=80") center/cover;
+    }
+
+    .stories-card .eyebrow,
+    .stories-card .insight-text,
+    .stories-card p {
+      color: rgba(255,255,255,.84);
+    }
+
+    body.private-mode .amount,
+    body.private-mode #incomeSummary,
+    body.private-mode #investSummary,
+    body.private-mode #coreSummary,
+    body.private-mode .result-box strong,
+    body.private-mode .split-result strong {
+      filter: blur(7px);
+      user-select: none;
+    }
+
     .toast {
       position: fixed;
       right: 22px;
@@ -505,7 +720,8 @@
 
     @media (max-width: 1040px) {
       .intro,
-      .dash-body {
+      .dash-body,
+      .feature-grid {
         grid-template-columns: 1fr;
       }
 
@@ -544,6 +760,12 @@
       .intro-stats,
       .income-row,
       .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .input-grid,
+      .split-result,
+      .profile-pills {
         grid-template-columns: 1fr;
       }
 
@@ -587,7 +809,7 @@
         <div class="hero">
           <p class="eyebrow">Business budget planner</p>
           <h1>Smart Budget Splitter</h1>
-          <p>Divida sua renda mensal por percentuais, acompanhe cada área do orçamento e baixe uma planilha executiva pronta para apresentação.</p>
+          <p>Transforme sua renda em um plano financeiro claro em segundos. Divida seu orçamento, simule metas e tome decisões com mais confiança.</p>
           <button class="start-btn" id="startBtn">
             Divide sua renda
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -625,9 +847,22 @@
               </svg>
               Baixar Excel
             </button>
+            <button class="secondary-btn" id="pdfBtn">Relatório PDF</button>
+            <button class="secondary-btn" id="shareBtn">Card resumo</button>
           </div>
         </header>
 
+        <nav class="tab-nav" aria-label="Smart Budget sections">
+          <button class="tab-button active" data-tab="plan">Plano</button>
+          <button class="tab-button" data-tab="goals">Metas</button>
+          <button class="tab-button" data-tab="flow">Fluxo</button>
+          <button class="tab-button" data-tab="family">Casal</button>
+          <button class="tab-button" data-tab="simulators">Simuladores</button>
+          <button class="tab-button" data-tab="health">Saúde</button>
+          <button class="tab-button" data-tab="assistant">Assistente</button>
+        </nav>
+
+        <div class="tab-panel active" data-panel="plan">
         <div class="dash-body">
           <section class="planner-panel">
             <div class="income-row">
@@ -671,6 +906,216 @@
             <div class="legend" id="legend"></div>
           </aside>
         </div>
+        </div>
+
+        <div class="tab-panel" data-panel="goals">
+          <div class="feature-grid">
+            <section class="tool-card">
+              <p class="eyebrow">Simulador de metas</p>
+              <h3>Quanto guardar por mês?</h3>
+              <div class="input-grid">
+                <label>Quero juntar<input id="goalTarget" data-calc inputmode="decimal" value="5000"></label>
+                <label>Já tenho<input id="goalCurrent" data-calc inputmode="decimal" value="800"></label>
+                <label>Em quantos meses<input id="goalMonths" data-calc type="number" value="12"></label>
+              </div>
+              <div class="result-box"><span>Guardar por mês</span><strong id="goalMonthly">R$ 350,00</strong></div>
+              <div class="progress-track"><span id="goalProgress"></span></div>
+            </section>
+
+            <section class="tool-card">
+              <p class="eyebrow">Lista de desejos</p>
+              <h3>Compra segura</h3>
+              <div class="input-grid">
+                <label>Produto<input id="wishName" data-calc value="PC gamer"></label>
+                <label>Preço<input id="wishPrice" data-calc inputmode="decimal" value="4200"></label>
+                <label>Parcela desejada<input id="wishMonths" data-calc type="number" value="10"></label>
+              </div>
+              <p class="insight-text" id="wishResult">A compra usa uma parte controlada do orçamento.</p>
+            </section>
+
+            <section class="tool-card">
+              <p class="eyebrow">Desafios</p>
+              <h3>Economia do mês</h3>
+              <div class="challenge-list">
+                <label><input type="checkbox" data-calc id="challengeSave"> Economize R$ 300 este mês</label>
+                <label><input type="checkbox" data-calc id="challengeNoSpend"> Passe 7 dias sem gastos desnecessários</label>
+                <label><input type="checkbox" data-calc id="challengeInvest"> Invista antes de gastar com lazer</label>
+              </div>
+              <div class="result-box"><span>Nível financeiro</span><strong id="achievementLevel">Nível 1</strong></div>
+            </section>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="flow">
+          <div class="feature-grid">
+            <section class="tool-card">
+              <p class="eyebrow">Sobrou dinheiro</p>
+              <h3>Destino da sobra</h3>
+              <div class="input-grid">
+                <label>Planejado<input id="plannedSpend" data-calc inputmode="decimal" value="4200"></label>
+                <label>Gasto real<input id="actualSpend" data-calc inputmode="decimal" value="3900"></label>
+                <label>Enviar para<select id="leftoverTarget" data-calc><option>Investimentos</option><option>Reserva de emergência</option><option>Meta principal</option></select></label>
+              </div>
+              <p class="insight-text" id="leftoverResult">Você tem sobra para reforçar investimentos.</p>
+            </section>
+
+            <section class="tool-card">
+              <p class="eyebrow">Renda variável</p>
+              <h3>Orçamento reajustável</h3>
+              <div class="input-grid">
+                <label>Recebi este mês<input id="variableIncome" data-calc inputmode="decimal" value="5000"></label>
+                <label>Frequência<select id="salaryCalendar" data-calc><option>Mensal</option><option>Quinzenal</option><option>Semanal</option><option>Datas diferentes</option></select></label>
+              </div>
+              <button class="ghost-action" id="applyVariableIncome">Aplicar renda no plano</button>
+              <p class="insight-text" id="variableResult">As categorias se recalculam com a renda informada.</p>
+            </section>
+
+            <section class="tool-card">
+              <p class="eyebrow">Calendário financeiro</p>
+              <h3>Próximos vencimentos</h3>
+              <div class="bill-list">
+                <label>Aluguel<input id="billRent" data-calc inputmode="decimal" value="1400"></label>
+                <label>Internet<input id="billInternet" data-calc inputmode="decimal" value="120"></label>
+                <label>Cartão<input id="billCard" data-calc inputmode="decimal" value="900"></label>
+                <label>Financiamento<input id="billLoan" data-calc inputmode="decimal" value="650"></label>
+              </div>
+              <div class="result-box"><span>Recorrentes do mês</span><strong id="recurringTotal">R$ 3.070,00</strong></div>
+            </section>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="family">
+          <div class="feature-grid">
+            <section class="tool-card">
+              <p class="eyebrow">Casal / família</p>
+              <h3>Divisão proporcional</h3>
+              <div class="input-grid">
+                <label>Renda pessoa A<input id="incomeA" data-calc inputmode="decimal" value="3000"></label>
+                <label>Renda pessoa B<input id="incomeB" data-calc inputmode="decimal" value="5000"></label>
+                <label>Despesas conjuntas<input id="familyExpense" data-calc inputmode="decimal" value="4000"></label>
+              </div>
+              <div class="split-result">
+                <div><span>Pessoa A contribui</span><strong id="fairA">R$ 1.500,00</strong></div>
+                <div><span>Pessoa B contribui</span><strong id="fairB">R$ 2.500,00</strong></div>
+              </div>
+            </section>
+
+            <section class="tool-card">
+              <p class="eyebrow">Perfis</p>
+              <h3>Tipo de orçamento</h3>
+              <div class="profile-pills">
+                <button data-profile="Pessoal">Pessoal</button>
+                <button data-profile="Casal">Casal</button>
+                <button data-profile="Casa">Casa</button>
+                <button data-profile="Viagem">Viagem</button>
+                <button data-profile="Negócio">Negócio</button>
+              </div>
+              <p class="insight-text" id="profileResult">Perfil atual: Pessoal.</p>
+            </section>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="simulators">
+          <div class="feature-grid">
+            <section class="tool-card">
+              <p class="eyebrow">Posso comprar?</p>
+              <h3>Impacto no orçamento</h3>
+              <div class="input-grid">
+                <label>Preço<input id="purchasePrice" data-calc inputmode="decimal" value="600"></label>
+                <label>Parcelas<input id="purchaseInstallments" data-calc type="number" value="1"></label>
+              </div>
+              <p class="insight-text" id="purchaseResult">Compra segura se não ultrapassar o lazer planejado.</p>
+            </section>
+
+            <section class="tool-card">
+              <p class="eyebrow">Dívida</p>
+              <h3>Quando fico livre?</h3>
+              <div class="input-grid">
+                <label>Saldo devedor<input id="debtAmount" data-calc inputmode="decimal" value="3000"></label>
+                <label>Juros ao mês (%)<input id="debtRate" data-calc inputmode="decimal" value="2"></label>
+                <label>Parcela<input id="debtPayment" data-calc inputmode="decimal" value="400"></label>
+              </div>
+              <p class="insight-text" id="debtResult">Você quita em aproximadamente 9 meses.</p>
+            </section>
+
+            <section class="tool-card">
+              <p class="eyebrow">Aumento salarial</p>
+              <h3>Nova divisão</h3>
+              <div class="input-grid">
+                <label>Novo salário<input id="raiseIncome" data-calc inputmode="decimal" value="6500"></label>
+              </div>
+              <p class="insight-text" id="raiseResult">O aumento libera mais para investimentos e metas.</p>
+            </section>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="health">
+          <div class="feature-grid">
+            <section class="tool-card hero-score">
+              <p class="eyebrow">Saúde financeira</p>
+              <h3>Nota do mês</h3>
+              <strong id="healthScore">82</strong>
+              <p class="insight-text" id="healthText">Boa base. Reforce reserva e mantenha investimentos.</p>
+            </section>
+
+            <section class="tool-card">
+              <p class="eyebrow">Detector</p>
+              <h3>Orçamento irrealista</h3>
+              <p class="insight-text" id="budgetWarning">Seu plano parece equilibrado.</p>
+            </section>
+
+            <section class="tool-card">
+              <p class="eyebrow">Cenários</p>
+              <h3>Plano recomendado</h3>
+              <div class="scenario-list" id="scenarioList"></div>
+            </section>
+
+            <section class="tool-card">
+              <p class="eyebrow">Previsão</p>
+              <h3>Fim do mês</h3>
+              <div class="input-grid">
+                <label>Gasto até hoje<input id="spentSoFar" data-calc inputmode="decimal" value="2500"></label>
+                <label>Dia do mês<input id="dayOfMonth" data-calc type="number" value="15"></label>
+              </div>
+              <p class="insight-text" id="monthForecast">Nesse ritmo, você terminará o mês com saldo positivo.</p>
+            </section>
+
+            <section class="tool-card">
+              <p class="eyebrow">Emergência</p>
+              <h3>Orçamento de sobrevivência</h3>
+              <button class="ghost-action" id="emergencyBtn">Ativar modo emergência</button>
+              <p class="insight-text" id="emergencyResult">Reduz lazer e reforça reserva automaticamente.</p>
+            </section>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="assistant">
+          <div class="feature-grid">
+            <section class="tool-card">
+              <p class="eyebrow">Assistente financeiro</p>
+              <h3>Pergunte ao seu orçamento</h3>
+              <textarea id="assistantQuestion" rows="4" placeholder="Onde posso economizar?"></textarea>
+              <button class="ghost-action" id="assistantBtn">Gerar sugestão</button>
+              <p class="insight-text" id="assistantAnswer">Pergunte algo para receber uma sugestão baseada no seu plano.</p>
+            </section>
+
+            <section class="tool-card">
+              <p class="eyebrow">Privacidade e moeda</p>
+              <h3>Preferências</h3>
+              <div class="input-grid">
+                <label>Moeda<select id="currencySelect" data-calc><option value="BRL">Real</option><option value="USD">Dólar</option><option value="EUR">Euro</option></select></label>
+                <label>Idioma<select id="languageSelect"><option>Português</option><option>English</option><option>Español</option></select></label>
+              </div>
+              <label class="toggle-line"><input type="checkbox" id="privateMode"> Modo privado</label>
+            </section>
+
+            <section class="tool-card stories-card" id="storyCard">
+              <p class="eyebrow">Stories mensal</p>
+              <h3>Resumo bonito</h3>
+              <p id="storySummary">Você está construindo um plano financeiro claro.</p>
+            </section>
+          </div>
+        </div>
       </section>
     </section>
   </main>
@@ -686,7 +1131,8 @@
       { id: "tithing", name: "Tithing", percent: 10, color: "E11D48" }
     ];
 
-    const money = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
+    let selectedCurrency = "BRL";
+    let money = new Intl.NumberFormat("pt-BR", { style: "currency", currency: selectedCurrency });
     const introScreen = document.getElementById("introScreen");
     const plannerScreen = document.getElementById("plannerScreen");
     const categoryList = document.getElementById("categoryList");
@@ -707,9 +1153,29 @@
       showToast.timer = setTimeout(() => toast.classList.remove("show"), 3200);
     }
 
+    function parseMoneyValue(value) {
+      const normalized = String(value ?? "").replace(/\./g, "").replace(",", ".");
+      const parsed = Number.parseFloat(normalized);
+      return Number.isFinite(parsed) ? parsed : 0;
+    }
+
+    function fieldValue(id) {
+      return parseMoneyValue(document.getElementById(id)?.value);
+    }
+
+    function setText(id, value) {
+      const element = document.getElementById(id);
+      if (element) element.textContent = value;
+    }
+
+    function refreshMoneyFormatter() {
+      selectedCurrency = document.getElementById("currencySelect")?.value || "BRL";
+      const locale = selectedCurrency === "USD" ? "en-US" : selectedCurrency === "EUR" ? "de-DE" : "pt-BR";
+      money = new Intl.NumberFormat(locale, { style: "currency", currency: selectedCurrency });
+    }
+
     function getIncome() {
-      const normalized = String(incomeInput.value).replace(/\./g, "").replace(",", ".");
-      const value = Number.parseFloat(normalized);
+      const value = parseMoneyValue(incomeInput.value);
       return Number.isFinite(value) && value > 0 ? value : 0;
     }
 
@@ -741,6 +1207,7 @@
     }
 
     function updateBudget() {
+      refreshMoneyFormatter();
       const income = getIncome();
       const total = categories.reduce((sum, item) => sum + item.percent, 0);
       let degrees = 0;
@@ -774,6 +1241,117 @@
           <strong>${item.percent}% · ${money.format(income * item.percent / 100)}</strong>
         </div>
       `).join("");
+
+      updateAdvancedTools();
+    }
+
+    function getCategory(id) {
+      return categories.find((item) => item.id === id);
+    }
+
+    function updateAdvancedTools() {
+      refreshMoneyFormatter();
+      const income = getIncome();
+      const total = categories.reduce((sum, item) => sum + item.percent, 0);
+      const investments = getCategory("investments");
+      const leisure = getCategory("leisure");
+      const food = getCategory("food");
+      const essentials = getCategory("essentials");
+
+      const target = fieldValue("goalTarget");
+      const current = fieldValue("goalCurrent");
+      const months = Math.max(1, fieldValue("goalMonths"));
+      const remaining = Math.max(0, target - current);
+      setText("goalMonthly", money.format(remaining / months));
+      const goalPercent = target > 0 ? Math.min(100, Math.round((current / target) * 100)) : 0;
+      const goalProgress = document.getElementById("goalProgress");
+      if (goalProgress) goalProgress.style.width = `${goalPercent}%`;
+
+      const wishPrice = fieldValue("wishPrice");
+      const wishMonths = Math.max(1, fieldValue("wishMonths"));
+      const wishInstallment = wishPrice / wishMonths;
+      const safeWishLimit = income * leisure.percent / 100 * 0.35;
+      setText("wishResult", wishInstallment <= safeWishLimit
+        ? `Compra planejável: ${money.format(wishInstallment)} por mês fica dentro de um limite saudável.`
+        : `Espere um pouco: ${money.format(wishInstallment)} por mês pressiona seu lazer/metas.`);
+
+      const challengeCount = ["challengeSave", "challengeNoSpend", "challengeInvest"].filter((id) => document.getElementById(id)?.checked).length;
+      setText("achievementLevel", `Nível ${1 + challengeCount}`);
+
+      const planned = fieldValue("plannedSpend");
+      const actual = fieldValue("actualSpend");
+      const leftover = Math.max(0, planned - actual);
+      const leftoverTarget = document.getElementById("leftoverTarget")?.value || "Investimentos";
+      setText("leftoverResult", leftover > 0
+        ? `Sobrou ${money.format(leftover)}. Sugestão: enviar para ${leftoverTarget.toLowerCase()}.`
+        : "Ainda não sobrou dinheiro. Revise gastos não essenciais.");
+
+      const variableIncome = fieldValue("variableIncome");
+      setText("variableResult", `Com ${money.format(variableIncome)}, Essentials fica em ${money.format(variableIncome * essentials.percent / 100)} e Investments em ${money.format(variableIncome * investments.percent / 100)}.`);
+
+      const recurring = fieldValue("billRent") + fieldValue("billInternet") + fieldValue("billCard") + fieldValue("billLoan");
+      setText("recurringTotal", money.format(recurring));
+
+      const incomeA = fieldValue("incomeA");
+      const incomeB = fieldValue("incomeB");
+      const expense = fieldValue("familyExpense");
+      const familyTotal = incomeA + incomeB || 1;
+      setText("fairA", money.format(expense * incomeA / familyTotal));
+      setText("fairB", money.format(expense * incomeB / familyTotal));
+
+      const purchasePrice = fieldValue("purchasePrice");
+      const purchaseInstallments = Math.max(1, fieldValue("purchaseInstallments"));
+      const purchaseMonthly = purchasePrice / purchaseInstallments;
+      const leisureBudget = income * leisure.percent / 100;
+      setText("purchaseResult", purchaseMonthly <= leisureBudget * 0.4
+        ? `Pode comprar com cautela: impacto mensal de ${money.format(purchaseMonthly)}.`
+        : `Melhor esperar: ${money.format(purchaseMonthly)} compromete muito do lazer mensal.`);
+
+      const debtAmount = fieldValue("debtAmount");
+      const debtRate = fieldValue("debtRate") / 100;
+      const debtPayment = fieldValue("debtPayment");
+      let debtMonths = 0;
+      let balance = debtAmount;
+      while (balance > 0 && debtMonths < 240 && debtPayment > balance * debtRate) {
+        balance = balance * (1 + debtRate) - debtPayment;
+        debtMonths++;
+      }
+      setText("debtResult", debtMonths && debtMonths < 240
+        ? `Você quita em aproximadamente ${debtMonths} meses.`
+        : "A parcela está baixa para vencer os juros. Aumente o pagamento.");
+
+      const raiseIncome = fieldValue("raiseIncome");
+      setText("raiseResult", `Com ${money.format(raiseIncome)}, envie ${money.format(raiseIncome * investments.percent / 100)} para investimentos e ${money.format(raiseIncome * leisure.percent / 100)} para lazer.`);
+
+      const spentSoFar = fieldValue("spentSoFar");
+      const day = Math.max(1, Math.min(31, fieldValue("dayOfMonth")));
+      const projectedSpend = spentSoFar / day * 30;
+      const projectedEnd = income - projectedSpend;
+      setText("monthForecast", `Nesse ritmo, você terminará o mês com ${money.format(projectedEnd)}.`);
+
+      const score = Math.max(0, Math.min(100, Math.round(
+        55 + investments.percent * 1.3 + (total === 100 ? 10 : -10) + (recurring < income * 0.65 ? 10 : -8) - (leisure.percent > 30 ? 10 : 0)
+      )));
+      setText("healthScore", String(score));
+      setText("healthText", score >= 80 ? "Ótima saúde financeira. Continue reforçando reserva e investimentos." : score >= 60 ? "Boa base, mas há espaço para reduzir gastos fixos." : "Atenção: priorize reserva, dívidas e despesas essenciais.");
+
+      const warnings = [];
+      if (food.percent < 10) warnings.push("alimentação parece baixa");
+      if (leisure.percent > 35) warnings.push("lazer parece alto");
+      if (investments.percent < 5) warnings.push("investimentos estão baixos");
+      if (total !== 100) warnings.push("percentuais não fecham 100%");
+      setText("budgetWarning", warnings.length ? `Ajuste recomendado: ${warnings.join(", ")}.` : "Seu plano parece equilibrado.");
+
+      const scenarioList = document.getElementById("scenarioList");
+      if (scenarioList) {
+        scenarioList.innerHTML = [
+          ["Conservador", 45, 20, 20, 5, 10],
+          ["Equilibrado", 35, 25, 15, 15, 10],
+          ["Agressivo", 30, 20, 30, 10, 10]
+        ].map(([name, e, f, inv, l, t]) => `<div class="result-box"><span>${name}</span><strong>${e}% Essenciais · ${inv}% Investimentos</strong></div>`).join("");
+      }
+
+      setText("storySummary", `Você planejou ${money.format(income)}. Maior categoria: ${essentials.name}. Investimentos previstos: ${money.format(income * investments.percent / 100)}.`);
     }
 
     function xml(value) {
@@ -1089,6 +1667,96 @@
 
     incomeInput.addEventListener("input", updateBudget);
     document.getElementById("exportBtn").addEventListener("click", exportExcel);
+    document.querySelectorAll(".tab-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".tab-button").forEach((item) => item.classList.remove("active"));
+        document.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.remove("active"));
+        button.classList.add("active");
+        document.querySelector(`[data-panel="${button.dataset.tab}"]`)?.classList.add("active");
+        updateAdvancedTools();
+      });
+    });
+
+    document.querySelectorAll("[data-calc]").forEach((element) => {
+      element.addEventListener("input", updateBudget);
+      element.addEventListener("change", updateBudget);
+    });
+
+    document.getElementById("applyVariableIncome").addEventListener("click", () => {
+      incomeInput.value = document.getElementById("variableIncome").value;
+      updateBudget();
+      showToast("Renda variável aplicada ao plano.");
+    });
+
+    document.getElementById("emergencyBtn").addEventListener("click", () => {
+      const emergency = { essentials: 55, food: 25, investments: 10, leisure: 0, tithing: 10 };
+      categories.forEach((item) => item.percent = emergency[item.id]);
+      renderCategories();
+      updateBudget();
+      setText("emergencyResult", "Modo emergência ativo: lazer reduzido e foco em sobrevivência/reserva.");
+      showToast("Modo emergência aplicado.");
+    });
+
+    document.querySelectorAll("[data-profile]").forEach((button) => {
+      button.addEventListener("click", () => {
+        setText("profileResult", `Perfil atual: ${button.dataset.profile}.`);
+      });
+    });
+
+    document.getElementById("privateMode").addEventListener("change", (event) => {
+      document.body.classList.toggle("private-mode", event.target.checked);
+    });
+
+    document.getElementById("assistantBtn").addEventListener("click", () => {
+      const question = document.getElementById("assistantQuestion").value.toLowerCase();
+      const investments = getCategory("investments").percent;
+      const leisure = getCategory("leisure").percent;
+      const food = getCategory("food").percent;
+      let answer = "Sugestão: mantenha o plano fechado em 100%, acompanhe gastos recorrentes e revise categorias toda semana.";
+      if (question.includes("econom")) {
+        answer = leisure > 15 ? "Você pode economizar reduzindo lazer em 3 a 5 pontos e movendo a diferença para metas ou reserva." : "Seu lazer já está controlado. Procure negociar recorrentes como internet, academia e assinaturas.";
+      } else if (question.includes("invest")) {
+        answer = investments < 15 ? "Tente elevar investimentos gradualmente até 15% da renda, começando com a sobra do mês." : "Seu percentual de investimentos está saudável. Automatize esse valor no dia do salário.";
+      } else if (question.includes("comida") || question.includes("aliment")) {
+        answer = food > 25 ? "Alimentação está relevante no orçamento. Planeje compras semanais e acompanhe delivery separadamente." : "Alimentação parece dentro do esperado. Só evite misturar mercado e lazer na mesma categoria.";
+      }
+      setText("assistantAnswer", answer);
+    });
+
+    document.getElementById("pdfBtn").addEventListener("click", () => {
+      showToast("Use a opção Salvar como PDF na janela de impressão.");
+      window.print();
+    });
+
+    document.getElementById("shareBtn").addEventListener("click", () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = 1080;
+      canvas.height = 1080;
+      const ctx = canvas.getContext("2d");
+      const income = getIncome();
+      ctx.fillStyle = "#0f766e";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "700 64px Arial";
+      ctx.fillText("Smart Budget Splitter", 70, 120);
+      ctx.font = "400 38px Arial";
+      ctx.fillText("Resumo mensal privado", 70, 180);
+      ctx.font = "700 72px Arial";
+      ctx.fillText(money.format(income), 70, 310);
+      ctx.font = "400 34px Arial";
+      categories.forEach((item, index) => {
+        ctx.fillText(`${item.name}: ${item.percent}%`, 80, 430 + index * 70);
+      });
+      ctx.fillStyle = "#b7791f";
+      ctx.fillRect(70, 860, 940, 90);
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "700 34px Arial";
+      ctx.fillText("Plano criado com foco, metas e controle.", 110, 918);
+      const link = document.createElement("a");
+      link.download = "smart-budget-resumo.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    });
 
     if ("serviceWorker" in navigator && location.protocol !== "file:") {
       window.addEventListener("load", () => {

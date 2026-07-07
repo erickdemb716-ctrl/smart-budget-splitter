@@ -1,4 +1,4 @@
-const CACHE_NAME = "smart-budget-splitter-v3";
+const CACHE_NAME = "smart-budget-splitter-v4";
 const ASSETS = [
   "./",
   "./index.html",
