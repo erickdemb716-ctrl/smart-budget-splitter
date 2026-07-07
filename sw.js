@@ -1,11 +1,11 @@
-const CACHE_NAME = "smart-budget-splitter-v1";
+const CACHE_NAME = "smart-budget-splitter-v3";
 const ASSETS = [
   "./",
   "./index.html",
   "./smart-budget-splitter.html",
   "./manifest.webmanifest",
-  "./smart-budget-logo.png",
-  "./smart-budget-icon.svg"
+  "./favicon.ico",
+  "./smart-budget-icon.png"
 ];
 
 self.addEventListener("install", (event) => {

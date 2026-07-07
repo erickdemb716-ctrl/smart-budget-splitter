@@ -10,8 +10,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="description" content="Divida sua renda mensal e exporte uma planilha executiva para Excel.">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" href="./smart-budget-logo.png" type="image/png">
-  <link rel="apple-touch-icon" href="./smart-budget-logo.png">
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="icon" href="./smart-budget-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="./smart-budget-icon.png">
   <title>Smart Budget Splitter</title>
   <style>
     :root {
@@ -113,8 +114,15 @@
       place-items: center;
       border: 1px solid rgba(255,255,255,.28);
       border-radius: 8px;
-      background: rgba(255,255,255,.14);
+      background: #ffffff;
       backdrop-filter: blur(12px);
+      overflow: hidden;
+    }
+
+    .logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .hero {
@@ -571,7 +579,7 @@
       <div class="intro-copy">
         <div class="logo-row">
           <div class="logo-mark" aria-hidden="true">
-            <img src="./smart-budget-logo.png" alt="" width="42" height="42">
+            <img src="./smart-budget-icon.png" alt="" width="42" height="42">
           </div>
           <span>Smart Budget Splitter</span>
         </div>
