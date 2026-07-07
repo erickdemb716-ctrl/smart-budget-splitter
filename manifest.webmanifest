@@ -2,7 +2,7 @@
   "name": "Smart Budget Splitter",
   "short_name": "Smart Budget",
   "description": "Divida sua renda mensal e exporte uma planilha executiva para Excel.",
-  "start_url": "./smart-budget-splitter.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
@@ -10,9 +10,9 @@
   "theme_color": "#0f766e",
   "icons": [
     {
-      "src": "./smart-budget-icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "./smart-budget-logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
@@ -20,7 +20,7 @@
     {
       "name": "Dividir renda",
       "short_name": "Dividir",
-      "url": "./smart-budget-splitter.html"
+      "url": "./"
     }
   ]
 }
